@@ -16,6 +16,8 @@ package config
 import (
 	"errors"
 	"fmt"
+	"github.com/go-kit/log/level"
+	"github.com/prometheus/common/promlog"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -39,7 +41,9 @@ func LoadFile(paths []string, expandEnvVars bool) (*Config, error) {
 			}
 			err = yaml.UnmarshalStrict(content, cfg)
 			if err != nil {
-				return nil, err
+				logger := promlog.New(&promlog.Config{})
+				level.Error(logger).Log("msg", "Error parsing config file", "filename", "err", f, err)
+				return nil, fmt.Errorf("error parsing config file %s: %w", f, err)
 			}
 		}
 	}
