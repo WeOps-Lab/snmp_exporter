@@ -1,4 +1,4 @@
-module github.com/prometheus/snmp_exporter
+module github.com/WeOps-Lab/snmp_exporter
 
 go 1.21
 
@@ -23,6 +23,7 @@ require (
 	github.com/jpillora/backoff v1.0.0 // indirect
 	github.com/mwitkow/go-conntrack v0.0.0-20190716064945-2f068394615f // indirect
 	github.com/prometheus/procfs v0.12.0 // indirect
+	github.com/prometheus/snmp_exporter v0.26.0 // indirect
 	github.com/xhit/go-str2duration/v2 v2.1.0 // indirect
 	golang.org/x/crypto v0.21.0 // indirect
 	golang.org/x/net v0.23.0 // indirect
